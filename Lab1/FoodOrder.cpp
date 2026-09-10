@@ -63,8 +63,12 @@ namespace seneca {
 
         m_description = new char[strlen(description) + 1];
         strcpy(m_description, description);
-
-        m_special = status == 'Y';
+        if (status == 'Y'){
+            m_special = true;
+        }
+        else{
+            m_special = false;
+        }
     }
 
     void FoodOrder::display() const {
