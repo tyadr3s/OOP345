@@ -68,7 +68,6 @@ namespace seneca {
         os.flags(oldFlags);
         os.precision(oldPrecision);
         os.fill(oldFill);
-        
         return os;
     }
 
