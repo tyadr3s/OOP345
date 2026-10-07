@@ -2,6 +2,7 @@
 #define SENECA_SHOPPINGCART_H
 #include <iostream>
 #include <string>
+#include <utility>
 #include "toy.h"
 
 namespace seneca {
@@ -13,8 +14,6 @@ namespace seneca {
         size_t count{};
         
         public:
-
-        ShoppingCart();
 
         ShoppingCart(const std::string& name, int age, const Toy* toys[], size_t count);
 
