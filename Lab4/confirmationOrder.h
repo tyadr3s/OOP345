@@ -1,5 +1,5 @@
-#ifndef SENECA_SHOPPINGCART_H
-#define SENECA_SHOPPINGCART_H
+#ifndef SENECA_CONFIRMATIONORDER_H
+#define SENECA_CONFIRMATIONORDER_H
 #include <iostream>
 #include <string>
 #include <utility>

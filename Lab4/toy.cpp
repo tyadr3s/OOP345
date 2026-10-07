@@ -10,7 +10,8 @@ namespace seneca {
         std::string temp = toy;
         
         size_t pos = temp.find(':');
-        std::string token = temp.substr(0, pos);
+        token.erase(0, token.find_first_not_of(' '));
+        token.erase(token.find_last_not_of(' ') + 1);
         id = std::stoi(token);
         temp.erase(0, pos + 1);
 

@@ -3,13 +3,13 @@
 namespace seneca {
 
     ShoppingCart::ShoppingCart( const std::string& m_name, int m_age, const Toy* toys[], size_t m_count) {
-        this.name = m_name;
-        this.age = m_age;
-        this.count = m_count;
-        this.toys = new const Toy*[count];
+        this->name = m_name;
+        this->age = m_age;
+        this->count = m_count;
+        this->toys = new const Toy*[count];
         
         for (size_t i = 0; i < count; i++) {
-            this.toys[i] = new Toy(*toys[i]);
+            this->toys[i] = new Toy(*toys[i]);
         }
     }
 
