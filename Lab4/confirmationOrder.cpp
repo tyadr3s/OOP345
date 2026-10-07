@@ -93,7 +93,7 @@ namespace seneca {
     std::ostream& operator<<(std::ostream& os, const ConfirmationOrder& order) {
         
         os << "--------------------------\n";
-        os << "Confirmations to Send\n";
+        os << "Confirmations to Send (" << order.count << " toys)\n";
         os << "--------------------------\n";
         
         if (order.count == 0) {
