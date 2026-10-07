@@ -10,6 +10,7 @@ namespace seneca {
         std::string temp = toy;
         
         size_t pos = temp.find(':');
+        std::string token = temp.substr(0, pos);
         token.erase(0, token.find_first_not_of(' '));
         token.erase(token.find_last_not_of(' ') + 1);
         id = std::stoi(token);
@@ -39,6 +40,9 @@ namespace seneca {
     }
 
     std::ostream& operator<<(std::ostream& os, const Toy& toy) {
+        auto oldFlags = os.flags();
+        auto oldPrecision = os.precision();
+        auto oldFill = os.fill();
 
         double subtotal = toy.quantity * toy.price;
         double tax = subtotal * toy.HST;
@@ -60,6 +64,10 @@ namespace seneca {
         << "  total: "
         << std::setw(7) << total
         << std::endl;
+        
+        os.flags(oldFlags);
+        os.precision(oldPrecision);
+        os.fill(oldFill);
         
         return os;
     }
