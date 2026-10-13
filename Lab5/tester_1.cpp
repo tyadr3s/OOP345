@@ -77,16 +77,27 @@ int main(int argc, char** argv)
 		//         exception.
 		//       - print the message:
 		//         "EXCEPTION: Message intended for [DESTINATION_ADDRESS_OF_MESSAGE]<endl>"
-		server.receiveMail(messages[0]);
+		try {
+			server.receiveMail(messages[0]);
+		}
+		catch (const std::invalid_argument& error) {
+			std::cout << "EXCEPTION: Message intended for [" << messages[0].m_toAddress << "]" << std::endl;
+		}
 
 
 		// TODO: Create a lambda expression that changes destination address of a message
 		//         to "john.smith@senemail.ca" if they have no destination address set.
-		auto fixDestAddress = ...
+		auto fixDestAddress = [](seneca::Message& msg) {
+			if (msg.m_toAddress.empty()) {
+				msg.m_toAddress = "john.smith@senemail.ca";
+			}
+		};
 
 
 		// TODO: Iterate over the array of messages, and apply the lambda expression to each message
-
+		for (auto& msg : messages) {
+			fixDestAddress(msg);
+		}
 
 		server.receiveMail(messages[0]);
 		server.showInbox();
