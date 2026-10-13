@@ -1,3 +1,5 @@
+#include <stdexcept>
+#include <utility>
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -113,9 +115,13 @@ int main(int argc, char** argv)
 		//         exception.
 		//       - print the message:
 		//         "EXCEPTION: Message intended for [DESTINATION_ADDRESS_OF_MESSAGE]<endl>"
-		for (int i = 1; i < 10; ++i)
-		{
-			server.receiveMail(messages[i]);
+		for (int i = 1; i < 10; ++i) {
+			try {
+				server.receiveMail(messages[i]);
+			}
+			catch (const std::invalid_argument& error) {
+				std::cout << "EXCEPTION: Message intended for [" << messages[i].m_toAddress << "]" << std::endl;
+			}
 		}
 		server.showInbox();
 		std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";
@@ -146,9 +152,13 @@ int main(int argc, char** argv)
 		//         exception.
 		//       - print the message:
 		//         "EXCEPTION: Message intended for [DESTINATION_ADDRESS_OF_MESSAGE]<endl>"
-		for (int i = 10; i < 20; ++i)
-		{
-			server.receiveMail(messages[i]);
+		for (int i = 10; i < 20; ++i) {
+			try {
+				server.receiveMail(messages[i]);
+			}
+			catch (const std::invalid_argument& error) {
+				std::cout << "EXCEPTION: Message intended for ["<< messages[i].m_toAddress << "]" << std::endl;
+			}
 		}
 
 		server.showInbox();
