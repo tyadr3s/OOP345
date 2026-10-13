@@ -1,4 +1,8 @@
 #include "mailServer.h"
+#include <iostream>
+#include <iomanip>
+#include <stdexcept>
+#include <utility>
 
 namespace seneca {
 
@@ -80,7 +84,7 @@ namespace seneca {
             delete[] m_inbox;
             
             m_userName = std::move(other.m_userName);
-            m_serAddress = std::move(other.m_userAddress);
+            m_userAddress = std::move(other.m_userAddress);
             
             m_inbox = other.m_inbox;
             m_cnt = other.m_cnt;
