@@ -125,16 +125,17 @@ namespace seneca {
         }
         return m_members[index];
     }
-
+    
     void Guild::showMembers()const{
-        if (m_count == 0) {
+        if (m_name.empty()){
             std::cout << "No guild.\n";
             return;
         }
         std::cout << "[Guild] " << m_name << '\n';
-
+        
         for (std::size_t i = 0; i < m_count; i++){
-            std::cout << "    " << i + 1 << ": " << *m_members[i] << '\n';
+            std::cout << "    " << i + 1 << ": "<< *m_members[i] << '\n';
         }
     }
+
 }
