@@ -26,8 +26,8 @@ namespace seneca {
         ~MailServer();
         MailServer(const MailServer& other);
         MailServer& operator=(const MailServer& other);
-        MailServer(MailServer&& other) noexcept;
-        MailServer& operator=(MailServer&& other) noexcept;
+        MailServer(MailServer&& other);
+        MailServer& operator=(MailServer&& other);
 
         void receiveMail(Message msg);
         void addPlugin(Plugin* thePlugin);

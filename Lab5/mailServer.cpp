@@ -60,7 +60,7 @@ namespace seneca {
         return *this;
     }
 
-    MailServer::MailServer(MailServer&& other) noexcept {
+    MailServer::MailServer(MailServer&& other){
         m_userName = std::move(other.m_userName);
         m_userAddress = std::move(other.m_userAddress);
         
@@ -79,7 +79,7 @@ namespace seneca {
         other.onNewMailArrived = nullptr;
     }
     
-    MailServer& MailServer::operator=(MailServer&& other) noexcept {
+    MailServer& MailServer::operator=(MailServer&& other){
         if (this != &other) {
             delete[] m_inbox;
             
