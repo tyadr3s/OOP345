@@ -1,7 +1,6 @@
 #include "mailServer.h"
 #include <iostream>
 #include <iomanip>
-#include <stdexcept>
 #include <utility>
 
 namespace seneca {

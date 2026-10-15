@@ -2,7 +2,6 @@
 #include "verifyIdentityPlugin.h"
 #include "message.h"
 #include <fstream>
-#include <stdexcept>
 #include <iostream>
 
 namespace seneca {
