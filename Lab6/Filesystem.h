@@ -1,36 +1,36 @@
-// Exercise - STL Containers
-// 2021/12/05 - Gideon
-
 #ifndef SENECA_FILESYSTEM_H
 #define SENECA_FILESYSTEM_H
 
-#include <vector>
-#include <ostream>
-
-#include "Resource.h"
+#include <string>
 #include "Directory.h"
-#include "File.h"
-#include "Flags.h"
 
 namespace seneca {
+
     class Filesystem {
         Directory* m_root = nullptr;
         Directory* m_current = nullptr;
 
-        std::string _trim(std::string);
+        std::string trim(const std::string& text);
 
     public:
-        Filesystem(const char*, const std::string & = "");
+        Filesystem(const char* filename, const std::string& rootName = "");
+
         Filesystem(const Filesystem&) = delete;
         Filesystem& operator=(const Filesystem&) = delete;
-        Filesystem(Filesystem&&) noexcept;
-        Filesystem& operator=(Filesystem&&) noexcept;
+
+        Filesystem(Filesystem&& other) noexcept;
+        Filesystem& operator=(Filesystem&& other) noexcept;
+
         ~Filesystem();
 
-        Filesystem& operator+=(Resource*);
-        Directory* change_directory(const std::string & = "");
+        Filesystem& operator+=(Resource* item);
+
+        Directory* change_directory(const std::string& name = "");
+
         Directory* get_current_directory() const;
     };
+
 }
 
 #endif
+
