@@ -1,21 +1,14 @@
-// Exercise - STL Containers
-// 2021/12/05 - Gideon
-
-#include <iomanip>
-#include <ostream>
-#include <string>
-
-#include "Flags.h"
 #include "File.h"
 
-
 namespace seneca {
-    File::File(const std::string& name, const std::string& contents) : m_contents(contents) {
+
+    File::File(const std::string& name, const std::string& contents) {
         m_name = name;
+        m_contents = contents;
     }
 
-    void File::update_parent_path(const std::string& parent_path) {
-        m_parent_path = parent_path;
+    void File::update_parent_path(const std::string& path) {
+        m_parent_path = path;
     }
 
     NodeType File::type() const {
@@ -35,6 +28,7 @@ namespace seneca {
     }
 
     size_t File::size() const {
-        return m_contents.length();
+        return m_contents.size();
     }
-}  // namespace seneca
+
+}
