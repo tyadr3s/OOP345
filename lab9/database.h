@@ -117,7 +117,5 @@ namespace seneca {
             }
         }
     }
-
 }
-
 #endif
