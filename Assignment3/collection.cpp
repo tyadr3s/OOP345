@@ -13,7 +13,7 @@ provider.
 #include "collection.h"
 #include <algorithm>
 #include <stdexcept>
-#include "collection.h" 
+
 
 namespace seneca{
 
@@ -26,7 +26,7 @@ namespace seneca{
         }
         return nullptr;
     }
-    
+
     Collection::Collection(const std::string &name) : m_name(name){
     }
 
@@ -65,7 +65,7 @@ namespace seneca{
     
     MediaItem* Collection::operator[](size_t idx) const {
         if (idx >= m_items.size()) {
-            throw std::out_of_range("Bad index " + std::to_string(idx) + ". Collection has " + std::to_string(m_items.size()) + " items.");
+            throw std::out_of_range("Bad index [" + std::to_string(idx) + "]. Collection has [" + std::to_string(m_items.size()) + "] items.");
         }
         return m_items[idx];
     }
