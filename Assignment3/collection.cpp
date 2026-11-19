@@ -17,6 +17,16 @@ provider.
 
 namespace seneca{
 
+    MediaItem* Collection::operator[](const std::string& title) const{
+        auto item = std::find_if(m_items.begin(), m_items.end(),[title](MediaItem* media){
+            return media->getTitle() == title;
+        });
+        if(item != m_items.end()){
+            return *item;
+        }
+        return nullptr;
+    }
+    
     Collection::Collection(const std::string &name) : m_name(name){
     }
 
