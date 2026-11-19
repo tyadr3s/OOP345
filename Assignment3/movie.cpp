@@ -43,7 +43,7 @@ namespace seneca
         return new Movie(title, static_cast<unsigned short>(stoi(year)), summary);
     }
 
-    void display(std::ostream &out) const
+    void Movie::display(std::ostream &out) const
     {
         if (g_settings.m_tableView)
         {

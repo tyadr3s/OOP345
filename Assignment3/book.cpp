@@ -49,7 +49,7 @@ namespace seneca
         return new Book(author, title, country, stod(price), static_cast<unsigned short>(stoi(year)), summary);
     }
 
-    void display(std::ostream &out) const
+    void Book::display(std::ostream &out) const
     {
         if (g_settings.m_tableView)
         {
