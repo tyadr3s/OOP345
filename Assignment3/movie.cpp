@@ -16,17 +16,13 @@ provider.
 #include <iomanip>
 #include <sstream>
 
-namespace seneca
-{
+namespace seneca{
 
-    Movie::Movie(const std::string &title, unsigned short year, const std::string &summary) : MediaItem(title, summary, year)
-    {
+    Movie::Movie(const std::string &title, unsigned short year, const std::string &summary) : MediaItem(title, summary, year){
     }
 
-    Movie *Movie::createItem(const std::string &line)
-    {
-        if (line.empty() || line[0] == '#')
-        {
+    Movie *Movie::createItem(const std::string &line){
+        if (line.empty() || line[0] == '#'){
             throw "Not a valid movie.";
         }
         std::stringstream data(line);
@@ -39,7 +35,6 @@ namespace seneca
         trim(title);
         trim(year);
         trim(summary);
-
         return new Movie(title, static_cast<unsigned short>(stoi(year)), summary);
     }
 

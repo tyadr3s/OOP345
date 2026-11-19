@@ -10,23 +10,18 @@ complete my assignments. This submitted piece of work has
 not been shared with any other student or 3rd party content
 provider.
 */
-
 #include "book.h"
 #include "settings.h"
 #include <iomanip>
 #include <sstream>
 
-namespace seneca
-{
+namespace seneca{
 
-    Book::Book(const std::string &author, const std::string &title, const std::string &country, double price, unsigned short year, const std::string &summary) : MediaItem(title, summary, year), m_author(author), m_country(country), m_price(price)
-    {
+    Book::Book(const std::string &author, const std::string &title, const std::string &country, double price, unsigned short year, const std::string &summary) : MediaItem(title, summary, year), m_author(author), m_country(country), m_price(price){
     }
 
-    Book *Book::createItem(const std::string &line)
-    {
-        if (line.empty() || line[0] == '#')
-        {
+    Book *Book::createItem(const std::string &line){
+        if (line.empty() || line[0] == '#'){
             throw "Not a valid book.";
         }
         std::stringstream data(line);

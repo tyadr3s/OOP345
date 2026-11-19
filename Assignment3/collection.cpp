@@ -56,14 +56,13 @@ namespace seneca{
             }
         }
         m_items.push_back(item);
-
         if (m_observer != nullptr){
             m_observer(*this, *item);
         }
         return *this;
     }
     
-    MediaItem* Collection::operator[](size_t idx) const {
+    MediaItem* Collection::operator[](size_t idx) const{
         if (idx >= m_items.size()) {
             throw std::out_of_range("Bad index [" + std::to_string(idx) + "]. Collection has [" + std::to_string(m_items.size()) + "] items.");
         }
@@ -91,7 +90,6 @@ namespace seneca{
     }
 
         void Collection::removeQuotes(){
-
             std::for_each(m_items.begin(), m_items.end(),[](MediaItem* item){    
                 std::string title = item->getTitle();
                 std::string summary = item->getSummary();

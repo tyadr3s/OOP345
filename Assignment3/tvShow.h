@@ -10,7 +10,6 @@ complete my assignments. This submitted piece of work has
 not been shared with any other student or 3rd party content
 provider.
 */
-
 #ifndef SENECA_TVSHOW_H
 #define SENECA_TVSHOW_H
 #include <iostream>
@@ -19,8 +18,6 @@ provider.
 #include <list>
 #include <sstream>
 #include "mediaItem.h"
-
-
 namespace seneca{
     class TvShow;
 
@@ -89,7 +86,7 @@ namespace seneca{
         char colon;
         time >> hours >> colon >> minutes >> colon >> seconds;
         
-        for (size_t i = 0; i < col.size(); i++) {
+        for (size_t i = 0; i < col.size(); i++){
             TvShow* show = dynamic_cast<TvShow*>(col[i]);
             if (show != nullptr && show->m_id == id) {
                 
@@ -103,11 +100,9 @@ namespace seneca{
                 episode.m_title = title;
                 episode.m_summary = summary;
                 show->m_episodes.push_back(episode);
-
                 return;
             }
         }
     }
-
 }
 #endif
